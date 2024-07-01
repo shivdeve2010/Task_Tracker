@@ -2,6 +2,13 @@ import { useState } from "react";
 
 const AddTask = () => {
     const [addModal, setAddModal] = useState(false);
+    const [projectName, setProjectName] = useState("");
+    const [taskDescription, setTaskDescription] = useState("");
+
+    const handleAdd = () => {
+        setAddModal(false)
+    }
+
     return (
         <>
            <button
@@ -32,20 +39,56 @@ const AddTask = () => {
                             </button>
                         </div>
                         <form className="p-6">
-                            <input
-                                className="w-full
-                                bg-gray-200
-                                text-gray-700 border
-                                border-gray-200 rounded
-                                py-3 px-4 mb-5
-                                leading-tight
-                                focus:outline-none
-                                focus:bg-white"
-                                id="project-name"
-                                type="text"
-                                placeholder="Project name"
-                            />
+                            <div>
+                                <label className="track-wide uppercase text-gray-700 text-xs font-semibold mb-2 block" htmlFor="project-name">
+                                Project Name
+                                </label>
+                                <input
+                                    className="w-full
+                                    bg-gray-200
+                                    text-gray-700 border
+                                    border-gray-200 rounded
+                                    py-3 px-4 mb-5
+                                    leading-tight
+                                    focus:outline-none
+                                    focus:bg-white"
+                                    id="project-name"
+                                    type="text"
+                                    placeholder="Project name"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label  className="track-wide uppercase text-gray-700 text-xs font-semibold mb-2 block" htmlFor="project-name">
+                                       Task Description
+                                </label>
+                                <textarea
+                                      className="w-full
+                                        bg-gray-200
+                                        text-gray-700 border
+                                        border-gray-200 rounded
+                                        py-3 px-4 mb-5
+                                        leading-tight
+                                        focus:outline-none
+                                        focus:bg-white"
+                                      id="task-description"
+                                      rows="5"
+                                      placeholder="Task description"
+                                />
+                            </div>
                         </form>
+                        <div className="flex justify-end p-6 border-t border-slate-200 rounded-b">
+                             <button
+                                 className="bg-blue-500
+                                 text-white font-semibold
+                                 uppercase text-sm px-6
+                                 py-3 rounded
+                                 hover:opacity-70"
+                                 onClick={handleAdd}
+                             >
+                                  Add Task
+                             </button>
+                        </div>
                     </div>
                  </div>
               </>
